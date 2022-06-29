@@ -1,14 +1,13 @@
 package Hello.hello_spring1.service;
 
-import Hello.hello_spring1.domain.Member;
+import Hello.hello_spring1.repository.domain.Member;
 import Hello.hello_spring1.repository.MemberRepository;
-import Hello.hello_spring1.repository.MemoryMemberRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
+@Transactional
 public class MemberService {
     private final MemberRepository memberRepository;
 
@@ -19,11 +18,12 @@ public class MemberService {
     /**
      *회원가입
      */
+
     public Long join(Member member){
         //중복회원 불가
-        validateDuplicateMember(member);
-        memberRepository.save(member);
-        return member.getId();
+            validateDuplicateMember(member);
+            memberRepository.save(member);
+            return member.getId();
     }
 
     private void validateDuplicateMember(Member member) {
@@ -37,7 +37,7 @@ public class MemberService {
      * 전체회원 조회
      */
     public List<Member> findMembers(){
-       return memberRepository.findAll();
+           return memberRepository.findAll();
     }
 
     public Optional<Member> findOne(Long memberId){

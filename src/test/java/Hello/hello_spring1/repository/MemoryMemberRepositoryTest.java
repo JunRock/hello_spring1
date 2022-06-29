@@ -1,11 +1,10 @@
 package Hello.hello_spring1.repository;
 
-import Hello.hello_spring1.domain.Member;
+import Hello.hello_spring1.repository.domain.Member;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.EnumMap;
 import java.util.List;
 
 class MemoryMemberRepositoryTest {
