@@ -13,23 +13,24 @@ import javax.swing.text.html.parser.Entity;
 
 @Configuration
 public class SpringConfig {
-   private final MemberRepository memberRepository;
+    private final MemberRepository memberRepository;
+
     @Autowired
     public SpringConfig(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
 
     @Bean
-    public MemberService memberService(){
+    public MemberService memberService() {
         return new MemberService(memberRepository);
     }
 
 
-   // @Bean
+    // @Bean
     //public MemberRepository memberRepository(){
-        //return new MemoryMemberRepository();
-        //return new JdbcMemberRepository(dataSource);
-        //return new JdbcTemplateMemberRepository(dataSource);
-        //return new JpaMemberRepository(em);
+    //return new MemoryMemberRepository();
+    //return new JdbcMemberRepository(dataSource);
+    //return new JdbcTemplateMemberRepository(dataSource);
+    //return new JpaMemberRepository(em);
     //}
 }

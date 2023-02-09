@@ -5,9 +5,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 class HelloSpring1ApplicationTests {
-
-	@Test
-	void contextLoads() {
-	}
+    /**
+     * 에노테이션 @Test사용
+     */
+    @Test
+    void contextLoads() {
+    }
 
 }
