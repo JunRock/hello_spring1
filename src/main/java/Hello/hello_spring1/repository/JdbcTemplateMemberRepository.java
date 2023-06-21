@@ -6,6 +6,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.sql.DataSource;
 import java.util.HashMap;
@@ -39,6 +40,8 @@ public class JdbcTemplateMemberRepository implements MemberRepository {
     public Optional<Member> findById(Long id) {
         List<Member> result = jdbcTemplate.query("select * from member where id = ?", memberRowMapper(), id);
         return result.stream().findAny();
+
+
     }
 
     @Override
